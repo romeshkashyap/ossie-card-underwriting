@@ -1,0 +1,41 @@
+{
+  // Cloud workspace for the Ossie credit card underwriting project.
+  // Runs entirely in GitHub Codespaces; nothing is installed on your laptop.
+  "name": "ossie-card-underwriting",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+  // Codespaces asks for these the first time and injects them as environment variables.
+  // Store the value under: GitHub > Settings > Codespaces > Secrets.
+  "secrets": {
+    "MOTHERDUCK_TOKEN": {
+      "description": "MotherDuck access token (read-write). Create it in MotherDuck > Settings > Access Tokens.",
+      "documentationUrl": "https://motherduck.com/docs/key-tasks/authenticating-and-connecting-to-motherduck/authenticating-to-motherduck/"
+    }
+  },
+
+  // dbt reads profiles.yml from the repo root, which contains no secrets.
+  "containerEnv": {
+    "DBT_PROFILES_DIR": "${containerWorkspaceFolder}"
+  },
+
+  "postCreateCommand": "bash scripts/post_create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "files.associations": { "*.sql": "jinja-sql" },
+        "editor.rulers": [100]
+      }
+    },
+    "codespaces": {
+      "openFiles": ["docs/s1-setup-guide.md"]
+    }
+  },
+
+  // A 2-core machine is enough and uses the free quota slowest.
+  "hostRequirements": { "cpus": 2 }
+}
