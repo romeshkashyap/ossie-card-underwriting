@@ -1,6 +1,10 @@
 # dbt Core 1.12+ parses Apache Ossie documents natively (osi/ folder).
 dbt-core>=1.12,<1.13
-dbt-duckdb>=1.9,<2.0
+dbt-duckdb>=1.9,<1.12
+
+# MotherDuck supports DuckDB up to 1.5.x (DuckDB 2.0 is not yet supported).
+# Check https://motherduck.com/docs before raising this pin.
+duckdb>=1.5,<1.6
 
 # Used from S5 onward for synthetic data generation.
 faker>=30
