@@ -1,0 +1,22 @@
+name: ossie_card_underwriting
+version: "0.1.0"
+config-version: 2
+profile: ossie_card_underwriting
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+# Apache Ossie documents (.json) live here; dbt 1.12+ parses them into the manifest.
+osi-paths: ["osi"]
+
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  ossie_card_underwriting:
+    smoke:
+      +materialized: view
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

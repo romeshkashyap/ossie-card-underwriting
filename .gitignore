@@ -1,0 +1,15 @@
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# Local databases
+*.duckdb
+*.duckdb.wal
+
+# Secrets and environments
+.env
+.env.*
+.venv/
+__pycache__/

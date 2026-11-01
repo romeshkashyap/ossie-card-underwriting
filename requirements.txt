@@ -1,0 +1,7 @@
+# dbt Core 1.12+ parses Apache Ossie documents natively (osi/ folder).
+dbt-core>=1.12,<1.13
+dbt-duckdb>=1.9,<2.0
+
+# Used from S5 onward for synthetic data generation.
+faker>=30
+pyyaml>=6

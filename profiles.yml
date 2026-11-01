@@ -1,0 +1,14 @@
+# No secrets in this file. The MotherDuck token comes from the
+# MOTHERDUCK_TOKEN environment variable (a Codespaces secret).
+ossie_card_underwriting:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "md:underwriting"
+      threads: 4
+    local:
+      # Fallback that needs no account: a DuckDB file inside the Codespace.
+      type: duckdb
+      path: "local_underwriting.duckdb"
+      threads: 4
